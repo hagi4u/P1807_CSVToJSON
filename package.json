@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "build": "node ./index.js"
+  },
+  "dependencies": {
+    "csvtojson": "^2.0.4"
+  }
+}
