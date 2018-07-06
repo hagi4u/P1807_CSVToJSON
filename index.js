@@ -30,7 +30,7 @@ const makeCompatibilityData = (raw) => {
 }
 
 Promise.all(result).then(res => {
-  fs.writeFile('output/scenario.json', JSON.stringify(makeCompatibilityData(res)), err => {
+  fs.writeFile('../static/scenario.json', JSON.stringify(makeCompatibilityData(res)), err => {
     if (err) throw err;
     console.log('즈장완료')
   })
