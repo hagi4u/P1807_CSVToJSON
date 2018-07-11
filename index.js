@@ -23,6 +23,7 @@ const makeCompatibilityData = (raw) => {
   return flattenRaw.contents.map(item => {
     return {
       ...item,
+      goal_cid: item.goal_cid !== '' ? item.goal_cid : null,
       prompt: flattenRaw.prompt.filter(prompt => prompt.cid === item.cid && prompt.prompt !== ''),
       question: flattenRaw.question.filter(question => question.cid === item.cid)
     }
@@ -30,7 +31,7 @@ const makeCompatibilityData = (raw) => {
 }
 
 Promise.all(result).then(res => {
-  fs.writeFile('../static/scenario.json', JSON.stringify(makeCompatibilityData(res)), err => {
+  fs.writeFile('../src/assets/scenario.json', JSON.stringify(makeCompatibilityData(res)), err => {
     if (err) throw err;
     console.log('즈장완료')
   })
